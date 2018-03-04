@@ -1,5 +1,3 @@
-var colorn;
-
 var color = new Vue({
     el: '#color',
     data: {
@@ -15,10 +13,9 @@ var color = new Vue({
     },
     methods: {
         change: function () {
-            axios.get('http://localhost:3000/REST/COLOR').then((res) =>{
-                colorn = res.data.color
-                this.ripcolor.backgroundColor = colorn;
-                this.isActive = true
+            axios.get('http://localhost:3000/API/COLOR').then((res) =>{
+                this.ripcolor.backgroundColor = res.data.color;
+                this.isActive = true;
                 setTimeout(() => {
                     this.style.backgroundColor = this.ripcolor.backgroundColor;
                     this.isActive = false;
